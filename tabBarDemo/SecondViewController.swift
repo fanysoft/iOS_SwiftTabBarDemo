@@ -9,17 +9,28 @@
 import UIKit
 
 class SecondViewController: UIViewController {
-
+    
+    
+    @IBOutlet var labelB: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // HERE we are trnsferring data from 1st ViewController
+    override func viewWillAppear(_ animated: Bool) {
+   
+        super.viewWillAppear(animated)
+        
+        // reference for viewController
+        let tabController = self.tabBarController?.viewControllers![0] as! FirstViewController
+        // getting from 1st screen valueA
+        self.labelB.text = tabController.valueA.text
+    
+    
     }
-
-
+    
+    
 }
 
